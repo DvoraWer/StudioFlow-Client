@@ -30,7 +30,7 @@ export default function InstructorClassesPage() {
         <EmptyState
           eyebrow="Nothing listed"
           title="No classes"
-          message="You are not the listed instructor on any class yet. An Admin assigns instructors when scheduling."
+          message="You are not the listed instructor on any class yet. Create one from Classes → New class, or an Admin can assign you."
         />
       )}
 
@@ -72,7 +72,7 @@ export default function InstructorClassesPage() {
       )}
 
       <p className="form__note">
-        Matched by your name as listed instructor. Read-only — Admins manage class scheduling and content.
+        Matched by your name as listed instructor. You can create your own classes; editing and cancelling are managed by Admins.
       </p>
     </div>
   );

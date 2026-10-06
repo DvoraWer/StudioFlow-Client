@@ -61,10 +61,11 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        {/* Admin, or an Instructor creating their own class (the API assigns ownership) */}
         <Route
           path="/admin/classes/new"
           element={
-            <ProtectedRoute roles="Admin">
+            <ProtectedRoute roles={['Admin', 'Instructor']}>
               <ClassFormPage mode="create" />
             </ProtectedRoute>
           }

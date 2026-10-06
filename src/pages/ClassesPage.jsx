@@ -65,9 +65,9 @@ export default function ClassesPage() {
         )}
       </PageHeader>
 
-      <RoleGate allow="Admin">
+      <RoleGate allow={['Admin', 'Instructor']}>
         <div className="toolbar">
-          <span className="toolbar__meta">Admin · scheduling</span>
+          <span className="toolbar__meta">Scheduling</span>
           <Link to="/admin/classes/new" className="btn btn--primary btn--sm">
             New class
           </Link>

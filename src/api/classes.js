@@ -16,8 +16,10 @@ export function listClasses({ page = 1, pageSize = 10, search, status, date, ins
 /** GET /api/classes/{id} — full detail incl. tags (spec §21). Public. */
 export const getClass = (id) => request(`/api/classes/${id}`, { auth: false });
 
-// --- Admin only (spec §21) --------------------------------------------------
+// --- Admin, or an Instructor for their own class (the API assigns ownership) --
 export const createClass = (body) => request('/api/classes', { method: 'POST', body });
+
+// --- Admin only (spec §21) --------------------------------------------------
 export const updateClass = (id, body) => request(`/api/classes/${id}`, { method: 'PUT', body });
 export const cancelClass = (id) => request(`/api/classes/${id}/cancel`, { method: 'POST' });
 
