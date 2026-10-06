@@ -1,5 +1,10 @@
 export const AUTH_STORAGE_KEY = 'studioflow.auth';
 
+// Base URL of a separately deployed API, baked in at build time (e.g. on Render:
+// VITE_API_BASE_URL=https://<api>.onrender.com). Unset in local dev, so requests
+// stay relative ("/api/...") and the Vite dev proxy forwards them to the API.
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/+$/, '');
+
 // AuthContext registers a callback so a 401 anywhere logs the user out.
 let unauthorizedHandler = () => {};
 export function setUnauthorizedHandler(fn) {
@@ -36,7 +41,7 @@ export async function request(path, { method = 'GET', body, auth = true } = {}) 
   const token = auth ? currentToken() : null;
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(path, {
+  const res = await fetch(`${API_BASE_URL}${path}`, {
     method,
     headers,
     body: body !== undefined ? JSON.stringify(body) : undefined

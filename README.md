@@ -53,3 +53,22 @@ HTTP 409 with `code: "CONCURRENCY_CONFLICT"`. The details page shows:
 npm run build     # outputs to dist/
 npm run preview   # serve the production build locally
 ```
+
+## Deploying (Render Static Site)
+
+A production build has no dev proxy, so it must know where the API lives.
+Set **`VITE_API_BASE_URL`** to the API's origin (e.g. `https://<api>.onrender.com`,
+no trailing `/api`). Vite bakes it in at **build time**. When it is unset (local
+dev) requests stay relative and go through the proxy.
+
+Render settings:
+
+- **Build command:** `npm install && npm run build`
+- **Publish directory:** `dist`
+- **Environment variable:** `VITE_API_BASE_URL` = the API URL
+- **Redirects/Rewrites:** source `/*`, destination `/index.html`, action **Rewrite**.
+  The app uses `BrowserRouter`, so without this a refresh on a route such as
+  `/classes/5` returns 404.
+
+The API must allow this site's origin: set `Cors__AllowedOrigins` on the API
+service to the static site's URL.
