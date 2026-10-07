@@ -6,3 +6,7 @@ export const login = (email, password) =>
 
 export const register = (name, email, password) =>
   request('/api/auth/register', { method: 'POST', body: { name, email, password }, auth: false });
+
+// Authenticated — any role. A wrong current password comes back as 400, not 401.
+export const changePassword = (currentPassword, newPassword) =>
+  request('/api/auth/change-password', { method: 'POST', body: { currentPassword, newPassword } });

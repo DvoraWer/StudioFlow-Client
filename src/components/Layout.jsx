@@ -9,16 +9,20 @@ const NAV_BY_ROLE = {
     { to: '/admin', label: 'Overview', end: true },
     { to: '/classes', label: 'Classes' },
     { to: '/admin/rooms', label: 'Rooms' },
-    { to: '/admin/instructors', label: 'Instructors' }
+    { to: '/admin/instructors', label: 'Instructors' },
+    { to: '/account', label: 'My Account' }
   ],
   Instructor: [
     { to: '/instructor', label: 'Overview', end: true },
     { to: '/classes', label: 'Classes' },
-    { to: '/instructor/classes', label: 'My Classes' }
+    { to: '/instructor/classes', label: 'My Classes' },
+    { to: '/instructor/profile', label: 'My Instructor Profile' },
+    { to: '/account', label: 'My Account' }
   ],
   Member: [
     { to: '/classes', label: 'Classes' },
-    { to: '/me/registrations', label: 'My Registrations' }
+    { to: '/me/registrations', label: 'My Registrations' },
+    { to: '/account', label: 'My Account' }
   ]
 };
 

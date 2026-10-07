@@ -20,6 +20,9 @@ import InstructorFormPage from './pages/admin/InstructorFormPage.jsx';
 
 import InstructorOverviewPage from './pages/instructor/InstructorOverviewPage.jsx';
 import InstructorClassesPage from './pages/instructor/InstructorClassesPage.jsx';
+import InstructorProfilePage from './pages/instructor/InstructorProfilePage.jsx';
+
+import MyAccountPage from './pages/account/MyAccountPage.jsx';
 
 export default function App() {
   return (
@@ -38,6 +41,16 @@ export default function App() {
           element={
             <ProtectedRoute roles={['Admin', 'Instructor']}>
               <ParticipantsPage />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Any authenticated role — the caller's own account */}
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute roles={['Admin', 'Instructor', 'Member']}>
+              <MyAccountPage />
             </ProtectedRoute>
           }
         />
@@ -141,6 +154,14 @@ export default function App() {
           element={
             <ProtectedRoute roles="Instructor">
               <InstructorClassesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/instructor/profile"
+          element={
+            <ProtectedRoute roles="Instructor">
+              <InstructorProfilePage />
             </ProtectedRoute>
           }
         />
