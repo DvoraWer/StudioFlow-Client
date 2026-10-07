@@ -115,16 +115,6 @@ export default function LoginPage() {
             </Button>
           </div>
         </form>
-
-        <div className="sysnote">
-          <b>System note</b>
-          <br />
-          New accounts are always Members.
-          <br />
-          Demo · password <b>Password123!</b>
-          <br />
-          admin@studioflow.local · instructor@studioflow.local · member1@studioflow.local
-        </div>
       </section>
     </div>
   );

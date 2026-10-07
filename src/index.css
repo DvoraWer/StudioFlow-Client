@@ -681,19 +681,6 @@ select { cursor: pointer; }
 
 .form-foot { margin-top: 8px; }
 
-.sysnote {
-  margin-top: 26px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  background: var(--paper-2);
-  font-family: var(--mono);
-  font-size: 11px;
-  line-height: 1.7;
-  letter-spacing: 0.03em;
-  color: var(--muted);
-}
-.sysnote b { color: var(--ink); font-weight: 700; letter-spacing: 0.1em; }
-
 /* ---------- toolbar (page action row) ---------------------------- */
 
 .toolbar {
